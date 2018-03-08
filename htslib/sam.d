@@ -223,19 +223,19 @@ struct bam1_t {
  @param  b  pointer to an alignment
  @return    boolean true if query is on the reverse strand
  */
-////#define bam_is_rev(b) (((b)->core.flag&BAM_FREVERSE) != 0)
+bool bam_is_rev(bam1_t *b) { return ( ((*b).core.flag & BAM_FREVERSE) != 0 ); }
 /*! @function
  @abstract  Get whether the query's mate is on the reverse strand
  @param  b  pointer to an alignment
  @return    boolean true if query's mate on the reverse strand
  */
-////#define bam_is_mrev(b) (((b)->core.flag&BAM_FMREVERSE) != 0)
+bool bam_is_mrev(bam1_t *b) { return( ((*b).core.flag & BAM_FMREVERSE) != 0); }
 /*! @function
  @abstract  Get the name of the query
  @param  b  pointer to an alignment
  @return    pointer to the name string, null terminated
  */
-////#define bam_get_qname(b) ((char*)(b)->data)
+auto bam_get_qname(bam1_t *b) { return (cast(char*)(*b).data); }
 /*! @function
  @abstract  Get the CIGAR array
  @param  b  pointer to an alignment
@@ -245,7 +245,7 @@ struct bam1_t {
  lower 4 bits gives a CIGAR operation and the higher 28 bits keep the
  length of a CIGAR.
  */
-////#define bam_get_cigar(b) ((uint32_t*)((b)->data + (b)->core.l_qname))
+auto bam_get_cigar(bam1_t *b) { return cast(uint *)((*b).data + (*b).core.l_qname); }
 /*! @function
  @abstract  Get query sequence
  @param  b  pointer to an alignment
@@ -256,7 +256,7 @@ struct bam1_t {
  at the higher 4 bits having smaller coordinate on the read. It is
  recommended to use bam_seqi() macro to get the base.
  */
-////#define bam_get_seq(b)   ((b)->data + ((b)->core.n_cigar<<2) + (b)->core.l_qname)
+auto bam_get_seq(bam1_t *b) { return ((*b).data + ((*b).core.n_cigar<<2) + (*b).core.l_qname); }
 /*! @function
  @abstract  Get query quality
  @param  b  pointer to an alignment
@@ -282,6 +282,7 @@ struct bam1_t {
  @return    4-bit integer representing the base.
  */
 ////#define bam_seqi(s, i) ((s)[(i)>>1] >> ((~(i)&1)<<2) & 0xf)
+auto bam_seqi(byte *s, uint i) { return ((s)[(i)>>1] >> ((~(i)&1)<<2) & 0xf);   }
 
 /**************************
  *** Exported functions ***
@@ -622,12 +623,11 @@ alias bam_mplp_t = __bam_mplp_t*;
                              int (*func)(void *data, const bam1_t *b, bam_pileup_cd *cd));
 
 
-
++/
 /***********************************
  * BAQ calculation and realignment *
  ***********************************/
 
-int sam_cap_mapq(bam1_t *b, const char *ref, int ref_len, int thres);
-int sam_prob_realn(bam1_t *b, const char *ref, int ref_len, int flag);
+int sam_cap_mapq(bam1_t *b, const char *reference, int ref_len, int thres);
+int sam_prob_realn(bam1_t *b, const char *reference, int ref_len, int flag);
 
-+/

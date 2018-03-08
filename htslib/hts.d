@@ -1,3 +1,7 @@
+// htslib-1.7 hts.h as D module
+// Changes include:
+// In D, const on either LHS or RHS of function declaration applies to the function, not return value, unless parents included:
+// changed ^const <type> <fnname> to ^const(<type>) <fnname>
 module hts;
 
 import std.bitmanip;
@@ -41,10 +45,6 @@ DEALINGS IN THE SOFTWARE.  */
 
 #include "hts_defs.h"
 #include "hts_log.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #ifndef HTS_BGZF_TYPEDEF
 typedef struct BGZF BGZF;
@@ -208,6 +208,7 @@ typedef struct {
     struct hts_tpool *pool; // The shared thread pool itself
     int qsize;    // Size of I/O queue to use for this fp
 } htsThreadPool;
++/
 
 // REQUIRED_FIELDS
 enum sam_fields {
@@ -260,19 +261,20 @@ enum hts_fmt_option {
 };
 
 // For backwards compatibility
-#define cram_option hts_fmt_option
+alias cram_option = hts_fmt_option;
 
-typedef struct hts_opt {
+struct hts_opt {
     char *arg;                // string form, strdup()ed
-    enum hts_fmt_option opt;  // tokenised key
-    union {                   // ... and value
+    hts_fmt_option opt;  // tokenised key
+    union val {                   // ... and value
         int i;
         char *s;
-    } val;
-    struct hts_opt *next;
-} hts_opt;
+    };
+    hts_opt *next;
+};
 
-#define HTS_FILE_OPTS_INIT {{0},0}
+//#define HTS_FILE_OPTS_INIT {{0},0}
+// Not apparently used in htslib-1.7
 
 /**********************
  * Exported functions *
@@ -327,7 +329,7 @@ The input character may be either an IUPAC ambiguity code, '=' for 0, or
 '0'/'1'/'2'/'3' for a result of 1/2/4/8.  The result is encoded as 1/2/4/8
 for A/C/G/T or combinations of these bits for ambiguous bases.
 */
-extern const unsigned char seq_nt16_table[256];
+extern const char seq_nt16_table[256];
 
 /*! @abstract Table for converting a 4-bit encoded nucleotide to an IUPAC
 ambiguity code letter (or '=' when given 0).
@@ -344,7 +346,7 @@ extern const int seq_nt16_int[];
   @return    For released versions, a string like "N.N[.N]"; or git describe
   output if using a library built within a Git repository.
 */
-const char *hts_version(void);
+const(char *) hts_version();
 
 /*!
   @abstract    Determine format by peeking at the start of a file
@@ -352,7 +354,7 @@ const char *hts_version(void);
   @param fmt   Format structure that will be filled out on return
   @return      0 for success, or negative if an error occurred.
 */
-int hts_detect_format(struct hFILE *fp, htsFormat *fmt);
+int hts_detect_format(hFILE *fp, htsFormat *fmt);
 
 /*!
   @abstract    Get a human-readable description of the file format
@@ -411,7 +413,7 @@ htsFile *hts_open_format(const char *fn, const char *mode, const htsFormat *fmt)
   @param fn       The already-open file handle
   @param mode     Open mode, as per hts_open()
 */
-htsFile *hts_hopen(struct hFILE *fp, const char *fn, const char *mode);
+htsFile *hts_hopen(hFILE *fp, const char *fn, const char *mode);
 
 /*!
   @abstract  Close a file handle, flushing buffered data for output streams
@@ -425,14 +427,14 @@ int hts_close(htsFile *fp);
   @param fp  The file handle
   @return    Read-only pointer to the file's htsFormat.
 */
-const htsFormat *hts_get_format(htsFile *fp);
+const(htsFormat *) hts_get_format(htsFile *fp);
 
 /*!
   @ abstract      Returns a string containing the file format extension.
   @ param format  Format structure containing the file type.
   @ return        A string ("sam", "bam", etc) or "?" for unknown formats.
  */
-const char *hts_format_file_extension(const htsFormat *format);
+const(char *) hts_format_file_extension(const htsFormat *format);
 
 /*!
   @abstract  Sets a specified CRAM option on the open file handle.
@@ -441,7 +443,7 @@ const char *hts_format_file_extension(const htsFormat *format);
   @param ... Optional arguments, dependent on the option used.
   @return    0 for success, or negative if an error occurred.
 */
-int hts_set_opt(htsFile *fp, enum hts_fmt_option opt, ...);
+int hts_set_opt(htsFile *fp, hts_fmt_option opt, ...);
 
 int hts_getline(htsFile *fp, int delimiter, kstring_t *str);
 char **hts_readlines(const char *fn, int *_n);
@@ -455,6 +457,7 @@ char **hts_readlines(const char *fn, int *_n);
 */
 char **hts_readlist(const char *fn, int is_file, int *_n);
 
+/+
 /*!
   @abstract  Create extra threads to aid compress/decompression for this file
   @param fp  The file handle
