@@ -13,7 +13,7 @@ static import htslib.hts;
 static import htslib.sam;
 
 immutable int max_readlen = 10000;
-
+/+
 struct Read {
     char[max_readlen] seq;
     int seqlen;
@@ -22,8 +22,8 @@ struct Read {
 pure int get_read(const bam1_t *rec, Read *r)
 {
    int len = (*rec).core.l_qseq + 1;
-    char *seq = cast(char *)bam_get_seq(rec) 
-}
+    char *seq = cast(char *)bam_get_seq(rec); 
+}+/
 /*
 // return the read, reverse complemented if necessary
 pure char *get_read(const bam1_t *rec)
@@ -66,7 +66,7 @@ int main() {
 	auto qname = htslib.sam.bam_get_qname(bptr);
 	writeln("Query name: ", fromStringz(qname) );
 
-	Read r;
+	//Read r;
 
 	htslib.sam.bam_hdr_destroy(header);
 	return htslib.hts.hts_close(fp);
