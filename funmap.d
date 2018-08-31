@@ -66,7 +66,7 @@ int main() {
         writeln( '@', r.queryName );
         writeln( r.sequence );
         writeln('+');
-        writeln();
+        writeln( r.qscores );
     }
 
 	bam_hdr_destroy(header);
