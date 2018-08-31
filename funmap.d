@@ -51,7 +51,7 @@ pure char *get_read(const bam1_t *rec)
 */
 
 int main() {
-    Record r;
+    Record r = new Record;
 
 	auto fn = std.string.toStringz("wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam");
 	auto mode=std.string.toStringz("r");
@@ -62,14 +62,12 @@ int main() {
 	// Verify BAM header was read:
 	writeln("n_targets: ", header.n_targets);
 
-    r.b = bam_init1();
-	auto ret = sam_read1(fp, header, r.b);
-	writeln("sam_read1: ", ret);
-
-	auto qname = bam_get_qname(r.b);
-	writeln("Query name: ", fromStringz(qname) );
-
-	//Read r;
+    while( sam_read1(fp, header, r.b) >= 0) {
+        writeln( '@', r.queryName );
+        writeln( r.sequence );
+        writeln('+');
+        writeln();
+    }
 
 	bam_hdr_destroy(header);
 	return hts_close(fp);
