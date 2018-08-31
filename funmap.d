@@ -62,7 +62,7 @@ int main() {
 	// Verify BAM header was read:
 	writeln("n_targets: ", header.n_targets);
 
-    r.b = new bam1_t;
+    r.b = bam_init1();
 	auto ret = sam_read1(fp, header, r.b);
 	writeln("sam_read1: ", ret);
 
