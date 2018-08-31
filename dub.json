@@ -1,0 +1,14 @@
+{
+	"name": "funmap",
+	"authors": [
+		"James Blachly"
+	],
+	"dependencies": {
+		"dhtslib": {"path": "../dhtslib"} 
+	},
+	"description": "fast unmap",
+	"copyright": "Copyright © 2018, James Blachly",
+	"license": "MIT",
+    "targetType": "executable",
+    "sourceFiles": [ "funmap.d"]
+}

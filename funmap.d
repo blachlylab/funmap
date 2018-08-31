@@ -8,9 +8,14 @@ import std.getopt;
 
 import core.stdc.stdlib : alloca;
 
+/+
 static import htslib.bgzf;
 static import htslib.hts;
 static import htslib.sam;
++/
+import dhtslib.sam;
+import dhtslib.htslib.hts;
+import dhtslib.htslib.sam;
 
 immutable int max_readlen = 10000;
 /+
@@ -46,28 +51,26 @@ pure char *get_read(const bam1_t *rec)
 */
 
 int main() {
+    Record r;
+
 	auto fn = std.string.toStringz("wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam");
 	auto mode=std.string.toStringz("r");
-	htslib.hts.htsFile *fp = htslib.hts.hts_open(fn, mode);
+	htsFile *fp = hts_open(fn, mode);
 
-	htslib.sam.bam_hdr_t *header = null;
-	header = htslib.sam.sam_hdr_read(fp);
+	bam_hdr_t *header = null;
+	header = sam_hdr_read(fp);
 	// Verify BAM header was read:
 	writeln("n_targets: ", header.n_targets);
 
-	// bam1_t is a BAM alignment record
-	// Allocate one on the stack
-	htslib.sam.bam1_t b;
-	auto bptr = &b;
-
-	auto ret = htslib.sam.sam_read1(fp, header, bptr);
+    r.b = new bam1_t;
+	auto ret = sam_read1(fp, header, r.b);
 	writeln("sam_read1: ", ret);
 
-	auto qname = htslib.sam.bam_get_qname(bptr);
+	auto qname = bam_get_qname(r.b);
 	writeln("Query name: ", fromStringz(qname) );
 
 	//Read r;
 
-	htslib.sam.bam_hdr_destroy(header);
-	return htslib.hts.hts_close(fp);
+	bam_hdr_destroy(header);
+	return hts_close(fp);
 }
