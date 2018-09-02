@@ -1,0 +1,4 @@
+bytes allocated, allocations, type, function, file:line
+       64255212	        1784867	char[] dhtslib.sam.Record.qscores ../dhtslib/source/dhtslib/sam.d:64
+       64255212	        1784867	char[] dhtslib.sam.Record.sequence ../dhtslib/source/dhtslib/sam.d:50
+             24	              1	dhtslib.sam.Record D main funmap.d:54

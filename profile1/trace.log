@@ -1,0 +1,197 @@
+------------------
+	    1	_D3std5stdio4File__T5writeTAyaTiTaZQpMFNfQoiaZv
+_D3std4conv__T11toTextRangeTiTSQBd5stdio4File17LockingTextWriterZQBzFNfiQBqZv	1	44629	41058
+	    1	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTAaZQBrFNfKQBtQnZv
+------------------
+	    1	_D3std4conv__T11toTextRangeTiTSQBd5stdio4File17LockingTextWriterZQBzFNfiQBqZv
+_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTAaZQBrFNfKQBtQnZv	1	3571	979
+	    1	_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTAaZQBtFNfKQBtKQoZv
+------------------
+	    1	_D3std5stdio4File__T5writeTAyaTiTaZQpMFNfQoiaZv
+	1784867	_D3std5stdio4File__T5writeTaTAyaTaZQpMFNfaQnaZv
+_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTAyaZQBsFNfKQBuQoZv	1784868	761022133	134033532
+	1784868	_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTAyaZQBuFNfKQBuKQpZv
+------------------
+	    1	_D3std5stdio4File__T5writeTAyaTiTaZQpMFNfQoiaZv
+	3569734	_D3std5stdio4File__T5writeTaTAyaTaZQpMFNfaQnaZv
+	3569734	_D3std5stdio4File__T5writeTaTaZQlMFNfaaZv
+_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTaZQBqFNfKQBsaZv	7139469	2212773827	516108912
+	7139469	_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTaZQBsFNfKQBsKaZv
+------------------
+	    1	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTAaZQBrFNfKQBtQnZv
+_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTAaZQBtFNfKQBtKQoZv	1	2592	333
+	    1	_D3std5stdio4File17LockingTextWriter__T3putTAaZQiMFNfMQkZv
+------------------
+	1784868	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTAyaZQBsFNfKQBuQoZv
+_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTAyaZQBuFNfKQBuKQpZv	1784868	626988601	134929665
+	1784868	_D3std5stdio4File17LockingTextWriter__T3putTAyaZQjMFNfMQlZv
+------------------
+	7139469	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTaZQBqFNfKQBsaZv
+_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTaZQBsFNfKQBsKaZv	7139469	1696664915	336518553
+	7139469	_D3std5stdio4File17LockingTextWriter__T3putTaZQhMFNfaZv
+------------------
+	    1	_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTAaZQBtFNfKQBtKQoZv
+_D3std5stdio4File17LockingTextWriter__T3putTAaZQiMFNfMQkZv	1	2259	495
+	    1	_D3std5stdio__T13trustedFwriteTaZQsFNbNiNePOS4core4stdcQBx7__sFILExAaZm
+------------------
+	1784868	_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTAyaZQBuFNfKQBuKQpZv
+	3569734	_D3std5stdio__T7writelnTAyaZQnFNfQjZv
+_D3std5stdio4File17LockingTextWriter__T3putTAyaZQjMFNfMQlZv	5354602	1544329231	280056092
+	5354602	_D3std5stdio__T13trustedFwriteTaZQsFNbNiNePOS4core4stdcQBx7__sFILExAaZm
+------------------
+	10709203	_D3std5stdio4File17LockingTextWriter__T3putTaZQhMFNfaZv
+_D3std5stdio4File17LockingTextWriter__T3putTaZQhMFNfaZ12trustedFPUTCFNbNiNeiPS4core4stdcQDe7__sFILEZi	10709203	1548947423	1548947423
+------------------
+	7139469	_D3std5range10primitives__T5doPutTSQBh5stdio4File17LockingTextWriterTaZQBsFNfKQBsKaZv
+	3569734	_D3std5stdio__T7writelnTAyaZQnFNfQjZv
+_D3std5stdio4File17LockingTextWriter__T3putTaZQhMFNfaZv	10709203	2341475474	792528051
+	10709203	_D3std5stdio4File17LockingTextWriter__T3putTaZQhMFNfaZ12trustedFPUTCFNbNiNeiPS4core4stdcQDe7__sFILEZi
+------------------
+	    1	_D3std5stdio__T7writelnTAyaTiZQpFNfQliZv
+_D3std5stdio4File__T5writeTAyaTiTaZQpMFNfQoiaZv	1	259178	79186
+	    1	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTAyaZQBsFNfKQBuQoZv
+	    1	_D3std4conv__T11toTextRangeTiTSQBd5stdio4File17LockingTextWriterZQBzFNfiQBqZv
+	    1	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTaZQBqFNfKQBsaZv
+------------------
+	1784867	_D3std5stdio__T7writelnTaTAyaZQpFNfaQkZv
+_D3std5stdio4File__T5writeTaTAyaTaZQpMFNfaQnaZv	1784867	3328469593	1445298365
+	3569734	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTaZQBqFNfKQBsaZv
+	1784867	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTAyaZQBsFNfKQBuQoZv
+------------------
+	1784867	_D3std5stdio__T7writelnTaZQlFNfaZv
+_D3std5stdio4File__T5writeTaTaZQlMFNfaaZv	1784867	2356252077	1265762708
+	3569734	_D3std5range10primitives__T3putTSQBf5stdio4File17LockingTextWriterTaZQBqFNfKQBsaZv
+------------------
+	5354602	_D3std5stdio4File17LockingTextWriter__T3putTAyaZQjMFNfMQlZv
+	    1	_D3std5stdio4File17LockingTextWriter__T3putTAaZQiMFNfMQkZv
+_D3std5stdio__T13trustedFwriteTaZQsFNbNiNePOS4core4stdcQBx7__sFILExAaZm	5354603	1264274903	1264274903
+------------------
+	    1	_Dmain
+_D3std5stdio__T7writelnTAyaTiZQpFNfQliZv	1	326590	67412
+	    1	_D3std5stdio4File__T5writeTAyaTiTaZQpMFNfQoiaZv
+------------------
+	3569734	_Dmain
+_D3std5stdio__T7writelnTAyaZQnFNfQjZv	3569734	5359674781	3326075374
+	3569734	_D3std5stdio4File17LockingTextWriter__T3putTAyaZQjMFNfMQlZv
+	3569734	_D3std5stdio4File17LockingTextWriter__T3putTaZQhMFNfaZv
+------------------
+	1784867	_Dmain
+_D3std5stdio__T7writelnTaTAyaZQpFNfaQkZv	1784867	3814926640	486457047
+	1784867	_D3std5stdio4File__T5writeTaTAyaTaZQpMFNfaQnaZv
+------------------
+	1784867	_Dmain
+_D3std5stdio__T7writelnTaZQlFNfaZv	1784867	2745450655	389198578
+	1784867	_D3std5stdio4File__T5writeTaTaZQlMFNfaaZv
+------------------
+	1784867	_D7dhtslib3sam6Record9queryNameMFNdZAya
+_D3std6string__T11fromStringzTaZQqFNaNbNiPaZAa	1784867	128990958	128990958
+------------------
+	5354601	_D6object__T4_dupTaTyaZQlFNaNbAaZAya
+_D6object__T11_doPostblitTyaZQrFNaNbNiNfAyaZv	5354601	342740581	204620804
+	5354601	_D6object__T12_getPostblitTyaZQsFNaNbNiNeZDFNaNbNiNfKyaZv
+------------------
+	5354601	_D6object__T4idupTaZQiFNaNbNdNfAaZAya
+_D6object__T11_trustedDupTaTyaZQtFNaNbNeAaZAya	5354601	3721444239	248822113
+	5354601	_D6object__T4_dupTaTyaZQlFNaNbAaZAya
+------------------
+	5354601	_D6object__T11_doPostblitTyaZQrFNaNbNiNfAyaZv
+_D6object__T12_getPostblitTyaZQsFNaNbNiNeZDFNaNbNiNfKyaZv	5354601	138119777	138119777
+------------------
+	5354601	_D6object__T11_trustedDupTaTyaZQtFNaNbNeAaZAya
+_D6object__T4_dupTaTyaZQlFNaNbAaZAya	5354601	3472622126	3129881545
+	5354601	_D6object__T11_doPostblitTyaZQrFNaNbNiNfAyaZv
+------------------
+	1784867	_D7dhtslib3sam6Record9queryNameMFNdZAya
+	1784867	_D7dhtslib3sam6Record8sequenceMFNdZAya
+	1784867	_D7dhtslib3sam6Record7qscoresMFNdZAya
+_D6object__T4idupTaZQiFNaNbNdNfAaZAya	5354601	4069273310	347829071
+	5354601	_D6object__T11_trustedDupTaTyaZQtFNaNbNeAaZAya
+------------------
+	    1	_Dmain
+_D7dhtslib3sam6Record6__ctorMFZCQBeQzQx	1	8921	8921
+------------------
+	3569734	_D7dhtslib3sam6Record8sequenceMFNdZAya
+	3569734	_D7dhtslib3sam6Record7qscoresMFNdZAya
+_D7dhtslib3sam6Record6lengthMFNdZi	7139468	165282101	165282101
+------------------
+	1784867	_Dmain
+_D7dhtslib3sam6Record7qscoresMFNdZAya	1784867	4990533936	3500218602
+	1784867	bam_get_qual
+	3569734	_D7dhtslib3sam6Record6lengthMFNdZi
+	1784867	_D6object__T4idupTaZQiFNaNbNdNfAaZAya
+------------------
+	1784867	_Dmain
+_D7dhtslib3sam6Record8sequenceMFNdZAya	1784867	6838783519	4827135198
+	1784867	bam_get_seq
+	3569734	_D7dhtslib3sam6Record6lengthMFNdZi
+	64255212	bam_seqi
+	1784867	_D6object__T4idupTaZQiFNaNbNdNfAaZAya
+------------------
+	1784867	_Dmain
+_D7dhtslib3sam6Record9queryNameMFNdZAya	1784867	1910387958	412044848
+	1784867	bam_get_qname
+	1784867	_D3std6string__T11fromStringzTaZQqFNaNbNiPaZAa
+	1784867	_D6object__T4idupTaZQiFNaNbNdNfAaZAya
+------------------
+_Dmain	0	31843511135	6183418135
+	    1	_D7dhtslib3sam6Record6__ctorMFZCQBeQzQx
+	    1	_D3std5stdio__T7writelnTAyaTiZQpFNfQliZv
+	1784867	_D7dhtslib3sam6Record9queryNameMFNdZAya
+	1784867	_D3std5stdio__T7writelnTaTAyaZQpFNfaQkZv
+	1784867	_D7dhtslib3sam6Record8sequenceMFNdZAya
+	3569734	_D3std5stdio__T7writelnTAyaZQnFNfQjZv
+	1784867	_D3std5stdio__T7writelnTaZQlFNfaZv
+	1784867	_D7dhtslib3sam6Record7qscoresMFNdZAya
+------------------
+	1784867	_D7dhtslib3sam6Record9queryNameMFNdZAya
+bam_get_qname	1784867	43740081	43740081
+------------------
+	1784867	_D7dhtslib3sam6Record7qscoresMFNdZAya
+bam_get_qual	1784867	88850293	88850293
+------------------
+	1784867	_D7dhtslib3sam6Record8sequenceMFNdZAya
+bam_get_seq	1784867	25178971	25178971
+------------------
+	64255212	_D7dhtslib3sam6Record8sequenceMFNdZAya
+bam_seqi	64255212	478991051	478991051
+
+======== Timer frequency unknown, Times are in Megaticks ========
+
+  Num          Tree        Func        Per
+  Calls        Time        Time        Call
+
+      1       31843        6183        6183     _Dmain
+1784867        6838        4827           0     @property immutable(char)[] dhtslib.sam.Record.sequence()
+1784867        4990        3500           0     @property immutable(char)[] dhtslib.sam.Record.qscores()
+3569734        5359        3326           0     @safe void std.stdio.writeln!(immutable(char)[]).writeln(immutable(char)[])
+5354601        3472        3129           0     pure nothrow immutable(char)[] object._dup!(char, immutable(char))._dup(char[])
+10709203        1548        1548           0     nothrow @nogc @trusted int std.stdio.File.LockingTextWriter.put!(char).put(char).trustedFPUTC(int, core.stdc.stdio.__sFILE*)
+1784867        3328        1445           0     @safe void std.stdio.File.write!(char, immutable(char)[], char).write(char, immutable(char)[], char)
+1784867        2356        1265           0     @safe void std.stdio.File.write!(char, char).write(char, char)
+5354603        1264        1264           0     nothrow @nogc @trusted ulong std.stdio.trustedFwrite!(char).trustedFwrite(shared(core.stdc.stdio.__sFILE)*, const(char[]))
+10709203        2341         792           0     @safe void std.stdio.File.LockingTextWriter.put!(char).put(char)
+7139469        2212         516           0     @safe void std.range.primitives.put!(std.stdio.File.LockingTextWriter, char).put(ref std.stdio.File.LockingTextWriter, char)
+1784867        3814         486           0     @safe void std.stdio.writeln!(char, immutable(char)[]).writeln(char, immutable(char)[])
+64255212         478         478           0     bam_seqi
+1784867        1910         412           0     @property immutable(char)[] dhtslib.sam.Record.queryName()
+1784867        2745         389           0     @safe void std.stdio.writeln!(char).writeln(char)
+5354601        4069         347           0     pure nothrow @property @safe immutable(char)[] object.idup!(char).idup(char[])
+7139469        1696         336           0     @safe void std.range.primitives.doPut!(std.stdio.File.LockingTextWriter, char).doPut(ref std.stdio.File.LockingTextWriter, ref char)
+5354602        1544         280           0     @safe void std.stdio.File.LockingTextWriter.put!(immutable(char)[]).put(scope immutable(char)[])
+5354601        3721         248           0     pure nothrow @trusted immutable(char)[] object._trustedDup!(char, immutable(char))._trustedDup(char[])
+5354601         342         204           0     pure nothrow @nogc @safe void object._doPostblit!(immutable(char))._doPostblit(immutable(char)[])
+7139468         165         165           0     @property int dhtslib.sam.Record.length()
+5354601         138         138           0     pure nothrow @nogc @trusted void delegate(ref immutable(char)) pure nothrow @nogc @safe object._getPostblit!(immutable(char))._getPostblit()
+1784868         626         134           0     @safe void std.range.primitives.doPut!(std.stdio.File.LockingTextWriter, immutable(char)[]).doPut(ref std.stdio.File.LockingTextWriter, ref immutable(char)[])
+1784868         761         134           0     @safe void std.range.primitives.put!(std.stdio.File.LockingTextWriter, immutable(char)[]).put(ref std.stdio.File.LockingTextWriter, immutable(char)[])
+1784867         128         128           0     pure nothrow @nogc char[] std.string.fromStringz!(char).fromStringz(char*)
+1784867          88          88           0     bam_get_qual
+1784867          43          43           0     bam_get_qname
+1784867          25          25           0     bam_get_seq
+      1           0           0           0     @safe void std.stdio.File.write!(immutable(char)[], int, char).write(immutable(char)[], int, char)
+      1           0           0           0     @safe void std.stdio.writeln!(immutable(char)[], int).writeln(immutable(char)[], int)
+      1           0           0           0     @safe void std.conv.toTextRange!(int, std.stdio.File.LockingTextWriter).toTextRange(int, std.stdio.File.LockingTextWriter)
+      1           0           0           0     dhtslib.sam.Record dhtslib.sam.Record.__ctor()
+      1           0           0           0     @safe void std.range.primitives.put!(std.stdio.File.LockingTextWriter, char[]).put(ref std.stdio.File.LockingTextWriter, char[])
+      1           0           0           0     @safe void std.stdio.File.LockingTextWriter.put!(char[]).put(scope char[])
+      1           0           0           0     @safe void std.range.primitives.doPut!(std.stdio.File.LockingTextWriter, char[]).doPut(ref std.stdio.File.LockingTextWriter, ref char[])

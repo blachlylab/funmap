@@ -6,7 +6,7 @@ import std.string;
 import std.range;	// walkLength
 import std.getopt;
 
-import core.stdc.stdlib : alloca;
+import core.stdc.stdlib : alloca, free;
 
 /+
 static import htslib.bgzf;
@@ -64,9 +64,16 @@ int main() {
 
     while( sam_read1(fp, header, r.b) >= 0) {
         writeln( '@', r.queryName );
-        writeln( r.sequence );
+        writeln( fromStringz(r.sequence) );
         writeln('+');
-        writeln( r.qscores );
+        writeln( fromStringz(r.qscores) );
+        /+
+        auto s = r.sequence;
+        auto q = r.qscores;
+
+        free(s);
+        free(q);
+        +/
     }
 
 	bam_hdr_destroy(header);
