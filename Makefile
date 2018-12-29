@@ -7,8 +7,17 @@ HTSLIB_MAC=/Users/james/Documents/Development/github.com/samtools/htslib-1.7/lib
 funmap: funmap.d
 	dmd -release -O -inline -I=../dhtslib/source/ -i $(HTSLIB_MAC) funmap.d
 
+funmap_minimal: funmap_minimal.d
+	ldc2 -O -release -I=../dhtslib/source/ -i -L-lhts funmap_minimal.d
+
+funmap_c: funmap_c.c
+	gcc -O3 funmap_c.c -lhts -I../../github.com/samtools/htslib-1.7/htslib -o funmap_c
+
 debug: funmap.d
 	dmd -debug -I=../dhtslib/source/ -i $(HTSLIB_MAC) funmap.d
 
 ldc: funmap.d
 	ldc2 -release -O -I=../dhtslib/source/ -i /Users/james/Documents/Development/github.com/samtools/htslib-1.7/libhts.a -L-lcurl -L-lbz2 -L-llzma funmap.d
+
+clean:
+	rm funmap funmap_minimal funmap_c
