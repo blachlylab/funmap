@@ -1,5 +1,7 @@
 .dub/*
 funmap
+funmap_minimal
+funmap_c
 *.o
 *.swp
 *.bam
