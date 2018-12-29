@@ -7,6 +7,7 @@ import std.range;	// walkLength
 import std.getopt;
 
 import core.stdc.stdlib : alloca, free;
+import core.stdc.stdio: printf;
 
 /+
 static import htslib.bgzf;
@@ -50,10 +51,12 @@ pure char *get_read(const bam1_t *rec)
 }
 */
 
-int main() {
+int main(string[] args) {
     Record r = new Record;
 
-	auto fn = std.string.toStringz("wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam");
+    ulong nrecords = 0;
+
+    auto fn = std.string.toStringz( args[1] );
 	auto mode=std.string.toStringz("r");
 	htsFile *fp = hts_open(fn, mode);
 
@@ -63,10 +66,11 @@ int main() {
 	writeln("n_targets: ", header.n_targets);
 
     while( sam_read1(fp, header, r.b) >= 0) {
+/+
         writeln( '@', r.queryName );
-        writeln( fromStringz(r.sequence) );
+        writeln( r.sequence );
         writeln('+');
-        writeln( fromStringz(r.qscores) );
+        writeln( r.qscores );
         /+
         auto s = r.sequence;
         auto q = r.qscores;
@@ -74,7 +78,21 @@ int main() {
         free(s);
         free(q);
         +/
++/
+//        auto qn = r.queryName;
+        auto qn = bam_get_qname(r.b);
+        auto s = r.sequence;
+        auto q = r.qscores;
+        nrecords++;
+
+        printf("%s\n%s\n+\n%s\n", qn, s, q);
+
+        free(s);
+        free(q);
     }
+
+    writeln("sam_read1 >= 0: ", sam_read1(fp, header, r.b) );
+    writeln("nrecords: ", nrecords);
 
 	bam_hdr_destroy(header);
 	return hts_close(fp);
