@@ -18,6 +18,8 @@ debug: funmap.d
 
 ldc: funmap.d
 	ldc2 -release -O -I=../dhtslib/source/ -i /Users/james/Documents/Development/github.com/samtools/htslib-1.7/libhts.a -L-lcurl -L-lbz2 -L-llzma funmap.d
+ldc_shorter: funmap.d
+	ldc2 -O -release -I=../dhtslib/source/ -i -L-lhts funmap.d
 
 clean:
 	rm funmap funmap_minimal funmap_c

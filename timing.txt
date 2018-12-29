@@ -1,0 +1,176 @@
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ make funmap_minimal
+ldc2 -O -release -I=../dhtslib/source/ -i -L-lhts funmap_minimal.d
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ make funmap_c
+gcc -O3 funmap_c.c -lhts -I../../github.com/samtools/htslib-1.7/htslib -o funmap_c
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap_minimal ENCFF399AWI.bam > /dev/null
+      173.35 real       163.41 user         4.46 sys
+   6361088  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1683  page reclaims
+         9  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+       281  voluntary context switches
+    192405  involuntary context switches
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap_c ENCFF399AWI.bam > /dev/null
+      173.61 real       164.05 user         4.41 sys
+   5058560  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1338  page reclaims
+         4  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+       320  voluntary context switches
+    179207  involuntary context switches
+jsbmbp13:~/Documents/Development/blachlylab/funmap$
+
+
+
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap ENCFF399AWI.bam > /dev/null
+      220.60 real       196.69 user         6.10 sys
+   7557120  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1978  page reclaims
+        10  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+        65  voluntary context switches
+    382653  involuntary context switches
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ set |grep PATH
+GOPATH=/Users/james/Documents/Development/go
+PATH=/Users/james/.npm-global/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/opt/X11/bin:/Users/james/scala/bin:/usr/local/go/bin:/Users/james/Documents/Development/go/bin:/Users/james/ldc2-1.11.0-osx-x86_64/bin
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ # 1, D writeln string # 2, samtools, # 3, D auto var = fn() without writeln
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap ENCFF399AWI.bam > /dev/null
+      227.44 real       183.20 user         5.97 sys
+   7540736  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1994  page reclaims
+        91  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+        67  voluntary context switches
+    395686  involuntary context switches
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ # 4, D without .idup
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap ENCFF399AWI.bam > /dev/null
+      188.04 real       174.01 user         4.67 sys
+   7528448  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1794  page reclaims
+       185  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+        50  voluntary context switches
+    218711  involuntary context switches
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ # 5, removed .idup from queryName()
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap ENCFF399AWI.bam > /dev/null
+      182.09 real       165.87 user         4.97 sys
+   7544832  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1974  page reclaims
+        10  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+        60  voluntary context switches
+    273275  involuntary context switches
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ bc
+bc 1.06
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'.
+scale=2
+182-154
+28
+28/154
+.18
+28/182
+.15
+^Djsbmbp13:~/Documents/Development/blachlylab/funmap$ # 6, Call bam_get_qname directly
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap ENCFF399AWI.bam > /dev/null
+      168.55 real       160.10 user         4.75 sys
+   7557120  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1962  page reclaims
+         2  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+        53  voluntary context switches
+    255592  involuntary context switches
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ./funmap ENCFF399AWI.bam > /dev/null
+      168.65 real       160.30 user         4.79 sys
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ # 7, sequence and qscores back to calloc/char * (free in main)
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ./funmap ENCFF399AWI.bam > /dev/null
+      149.79 real       142.28 user         4.03 sys
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ./funmap ENCFF399AWI.bam > /dev/null
+      150.45 real       143.62 user         4.03 sys
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ # 8, with printf
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ./funmap ENCFF399AWI.bam > /dev/null
+      185.44 real       176.37 user         4.98 sys
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ../../github.com/samtools/samtools-1.7/samtools fastq -@ 2 ENCFF399AWI.bam > /dev/null
+[M::bam2fq_mainloop] discarded 0 singletons
+[M::bam2fq_mainloop] processed 78979983 reads
+      134.54 real       171.07 user        34.20 sys
+
+# With changes to dhtslib to properly reverse complement
+# With changes to funmap:     Param input BAM, remove fromStringz, printf, free (fix leak)
+# (Accidentaly did 'dub build' and got time ~ 282 seconds -- must be debug code)
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ make ldc_shorter
+ldc2 -O -release -I=../dhtslib/source/ -i -L-lhts funmap.d
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap ENCFF399AWI.bam > /dev/null
+      170.40 real       162.72 user         4.80 sys
+   6574080  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1752  page reclaims
+        25  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+        59  voluntary context switches
+    233951  involuntary context switches
+
