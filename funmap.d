@@ -5,6 +5,7 @@ import std.format;
 import std.string;
 import std.range;	// walkLength
 import std.getopt;
+import std.parallelism: totalCPUs;
 
 import core.stdc.stdlib : alloca, free;
 import core.stdc.stdio: printf;
@@ -59,6 +60,13 @@ int main(string[] args) {
     auto fn = std.string.toStringz( args[1] );
 	auto mode=std.string.toStringz("r");
 	htsFile *fp = hts_open(fn, mode);
+
+    if (totalCPUs > 1) {
+        stderr.writefln("%d CPU cores detected; enabling multithreading.", totalCPUs);
+        // hts_set_threads adds N _EXTRA_ threads, so totalCPUs - 1 seemed reasonable,
+        // but overcomitting by 1 thread (i.e., passing totalCPUs) buys an extra 3% on my 2-core 2013 Mac
+        hts_set_threads(fp, totalCPUs );
+    }
 
 	bam_hdr_t *header = null;
 	header = sam_hdr_read(fp);
