@@ -174,3 +174,57 @@ jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap EN
         59  voluntary context switches
     233951  involuntary context switches
 
+# Using hts_set_threads(fp, 1) -- i.e., one extra thread for BAM decompression, we do much better: 120sec
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ make ldc
+ldc2 -release -O -I=../dhtslib/source/ -i /Users/james/Documents/Development/github.com/samtools/htslib-1.7/libhts.a -L-lcurl -L-lbz2 -L-llzma funmap.d
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time -l ./funmap ENCFF399AWI.bam > /dev/null
+      120.33 real       193.94 user        28.86 sys
+   7131136  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         0  average unshared stack size
+      1798  page reclaims
+         2  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         0  messages sent
+         0  messages received
+         0  signals received
+    337469  voluntary context switches
+   1365622  involuntary context switches
+
+# The average is closer to 123.5 sec. By overcommitting one thread (i.e., 3 BAM decompression threads on a 2 core machine),
+# I was able to save another 3%:
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ./funmap ENCFF399AWI.bam > /dev/null
+2 CPU cores detected; enabling multithreading.
+      123.48 real       200.10 user        30.99 sys
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ./funmap ENCFF399AWI.bam > /dev/null
+2 CPU cores detected; enabling multithreading.
+      123.69 real       202.49 user        30.94 sys
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ make ldc
+ldc2 -release -O -I=../dhtslib/source/ -i /Users/james/Documents/Development/github.com/samtools/htslib-1.7/libhts.a -L-lcurl -L-lbz2 -L-llzma funmap.d
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ./funmap ENCFF399AWI.bam > /dev/null
+2 CPU cores detected; enabling multithreading.
+      121.93 real       201.74 user        33.01 sys
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ./funmap ENCFF399AWI.bam > /dev/null
+2 CPU cores detected; enabling multithreading.
+      119.51 real       198.67 user        31.99 sys
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ bc
+bc 1.06
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'.
+scale=2
+123.5 - 119.5
+4.0
+4 / 123.5
+.03
+
+# A prior run of samtools fastq with -@ 2 clocked in at 135 sec. However, a re-run today took 109.77s, so we are still behind, likely due to printf
+
+jsbmbp13:~/Documents/Development/blachlylab/funmap$ /usr/bin/time ../../github.com/samtools/samtools-1.7/samtools fastq -@ 2 ENCFF399AWI.bam > /dev/null
+[M::bam2fq_mainloop] discarded 0 singletons
+[M::bam2fq_mainloop] processed 78979983 reads
+      109.77 real       165.73 user        30.72 sys
+
